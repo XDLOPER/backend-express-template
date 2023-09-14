@@ -15,6 +15,7 @@ dbConnect()
 
 // app variables and inheritenses
 const PORT = process.env.PORT || 3000
+const apiPath = process.env.API_PATH;
 const app = express()
 
 // app middlewares
@@ -23,8 +24,9 @@ app.use(bodyParser.json({limit:'30mb',extended:true}))
 app.use(bodyParser.urlencoded({limit:'30mb',extended:true}))
 
 // app routers
-app.use('/',routerMain)
-app.use('/auth',routerAuth)
+
+app.use(`/${apiPath}/`,routerMain)         
+app.use(`/${apiPath}/auth`,routerAuth)
 
 app.listen(PORT, () => {
      console.log(`Example app listening on port  ${PORT}`)

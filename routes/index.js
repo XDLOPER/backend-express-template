@@ -10,4 +10,5 @@ router.get('/', function(req, res){
      res.sendFile(path.resolve(__dirname,'../static/public/index.html'))
 })
 
+
 export default router

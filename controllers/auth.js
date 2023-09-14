@@ -1,8 +1,7 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import {isValidEmail} from '../helpers/index.js' 
-import path from 'path'
 
+import {isValidEmail} from '../helpers/index.js' 
 import AuthScheme from '../models/auth.js'
 
 export const register = async (req,res) => {
@@ -37,7 +36,7 @@ export const register = async (req,res) => {
       
                 const userCreate = await AuthScheme.create({username,email,password:passwordHash})
       
-                const token = jwt.sign({id:userCreate._id},'SECRET_KEY',{expiresIn:'1h'})
+                const token = jwt.sign({id:userCreate._id},process.env.SECRET_KEY,{expiresIn:'1h'})
                 res.status(201).json({
                      status:'OK',
                      message:userCreate,
@@ -73,7 +72,7 @@ export const login = async (req,res) => {
                       return res.status(400).send({message:'şifreler uyuşmuyor'})   
                 }
 
-                const token = jwt.sign({id:user._id},'SECRET_KEY',{expiresIn:'1h'})
+                const token = jwt.sign({id:user._id},process.env.SECRET_KEY,{expiresIn:'1h'})
 
         res.status(200).json({
                 status:'OK',
