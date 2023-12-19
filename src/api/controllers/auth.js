@@ -1,8 +1,8 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
-import {isValidEmail} from '../helpers/index.js' 
-import AuthScheme from '../models/auth.js'
+import {isValidEmail} from '../../utils/helpers/index.js' 
+import AuthScheme from '../../models/auth.js'
 
 export const register = async (req,res) => {
         try {

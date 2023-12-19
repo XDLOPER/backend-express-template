@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
-const databaseConnect = ()=>{
+const databaseConnect = (MONGO_URL)=>{
 
-          mongoose.connect(process.env.MONGOURL,{
+          mongoose.connect(MONGO_URL,{
                useNewUrlParser: true,
                useUnifiedTopology:true
           }).then(

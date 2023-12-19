@@ -7,7 +7,7 @@ pnpm-workspace.yaml
 yarn.lock
 
 # Environment variables
-.env
+.envvvvvvvvvvvvvvvvv
 .env.local
 .env.development.local
 .env.test.local
