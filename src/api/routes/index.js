@@ -1,7 +1,7 @@
 import express from 'express'
 
 // pages import
-import authRoute from './pages/auth.js'
+import authRoute from './urls/auth.js'
 
 const router = express.Router()
 
@@ -26,11 +26,11 @@ router.get('/', function(req, res){ // => api main route 'localhost:1000/'
         }).end();
 });
 
-// define the routes
+// define the routes 
      router.use('/auth/',authRoute)
 //
 // router private error handlers
-     router.use((_req, _res, next) => { // sadece alttaki middleware için bir ara katman aslında kodu bölmek için
+     router.use((_req, _res, next) => { // sadece alttaki middleware için bir ara katman aslında kodu bölmek için silinerek kod küçültülebilir bence
           const error = new Error('Endpoint could not find!');
           error.status = 404;
           next(error);
@@ -56,6 +56,6 @@ router.get('/', function(req, res){ // => api main route 'localhost:1000/'
                code: resultCode,
           }).end();
      });
-//
+// 
 
 export default router
